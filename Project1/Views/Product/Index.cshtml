@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+
+        <div class ="col-6">
+            <h2 class="text-primary">Poduct List</h2>
+        </div>
+        <div class ="col-6 text-right" >
+            <a  asp-action="UpSert" class="btn btn-primary">
+                  creat new Product
+            </a>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    @if (Model.Count() > 0)
+    {
+        <table class="table tab-content table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Catogery</th>
+                    <th>Application Type</th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                    <td style="width:50%">@item.Name</td>
+                    <td style="width:50%">@item.Price</td>
+                    <td style="width:50%">@item.Catogery.Name</td>
+
+                    <td style="width:50%">@item.applicationType.Name</td>
+                    <td class="text-center">
+                        <div class="w-75 btn-group" role="group">
+
+                        <a  asp-action="UpSert" class="btn btn-primary" asp-route-id="@item.Id">
+                              Edit
+                        </a>
+                        <a  asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">
+                            Delete
+                        </a>
+
+                        </div>
+                    </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    }
+
+</div>

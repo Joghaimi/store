@@ -1,0 +1,60 @@
+﻿@model Project1.Models.Catogery
+
+@{
+    ViewData["Title"] = "Edir";
+}
+
+<h1>Create</h1>
+<form  method="post" asp-action="Edit">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-alert-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Add Catogery</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Name" ></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Name" class="form-control" value="@Model.Name"/>
+                        <span asp-validation-for ="Name" class="text-alert-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="displayOrder" ></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="displayOrder" class="form-control" value="@Model.displayOrder"/>
+                        <span asp-validation-for ="displayOrder" class="text-alert-danger"></span>
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <input type="submit" class ="btn btn-info w-100" value="Update"/>                  
+                        </div>
+                        <div class="col">
+
+                     <a asp-controller="Catogery" asp-action="index" class="btn btn-primary w-100 btn-success">Back</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    @{<partial name="_ValidationScriptsPartial"/>}
+}

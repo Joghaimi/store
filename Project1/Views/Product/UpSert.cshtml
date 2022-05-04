@@ -1,0 +1,151 @@
+﻿@model Project1.Models.ViewModels.ProductVM
+
+@{
+    var title = "Create Product";
+    ViewData["Title"] = "Edit";
+}
+
+<form  method="post" enctype="multipart/form-data" >
+    @if (Model.prodct.Id != 0)
+    {
+        title = "Edit Product";
+        ViewData["Title"] = @title;
+                            <input asp-for="prodct.Id" hidden />
+    }
+    <h1>@title</h1>
+
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-alert-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Add Catogery</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="prodct.Name" ></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="prodct.Name" class="form-control" value="@Model.prodct.Name"/>
+                        <span asp-validation-for ="prodct.Name" class="text-alert-danger"></span>
+                    </div>
+                </div>
+                   <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="prodct.Price" ></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="prodct.Price" class="form-control" value="@Model.prodct.Price"/>
+                        <span asp-validation-for ="prodct.Price" class="text-alert-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="prodct.Description" ></label>
+                    </div>
+                    <div class="col-8">
+                        <textarea asp-for="prodct.Description"  class="form-control summernote"></textarea>
+                        <span asp-validation-for ="prodct.Description" class="text-alert-danger"></span>
+                    </div>
+                </div>
+
+                     <div class="form-group row">
+                    <div class="col-4">
+                        Image
+                    </div>
+                    <div class="col-8">
+                        <input type="file" name="files" id="uplodeBox" class="form-control"  multiple/>
+                    </div>
+                </div>
+                  <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="prodct.CatogeryId" ></label>
+                    </div>
+                    <div class="col-8">
+
+                        <select asp-for="prodct.CatogeryId" asp-items="@Model.CategoryDropDown" class="form-control">
+                            <option selected disabled> -- Select Catogery -- </option>
+
+                        </select>
+                        <span asp-validation-for ="prodct.CatogeryId" class="text-alert-danger" ></span>
+                    </div>
+
+
+                </div>
+
+
+                 <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="prodct.ApplicationTypeId" ></label>
+                    </div>
+                    <div class="col-8">
+
+                        <select asp-for="prodct.ApplicationTypeId" asp-items="@Model.ApplicationTyptDropDown" class="form-control">
+                            <option selected disabled> -- Select Application type -- </option>
+
+                        </select>
+                        <span asp-validation-for ="prodct.applicationType" class="text-alert-danger" ></span>
+                    </div>
+
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            @if (Model.prodct.Id != 0)
+                            {
+                // Update
+                                                        <input type="submit" class ="btn btn-info w-100" value="Update"/>
+                            }
+                            else
+                            {
+                // Create new 
+                                                        <input type="submit" class ="btn btn-primary w-100"onclick="return validateInput()" value="Create"/>
+                            }
+                                </div>
+                        <div class="col">
+
+                     <a asp-controller="Product" asp-action="index" class="btn btn-primary w-100 btn-success">Back</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+                @if (Model.prodct.Id != 0)
+                {
+                       <img src ="@WC.ImagePath@Model.prodct.Image" width="100%" style="border-radius :5px;border:1px solid #bbb"/>
+
+                }
+
+                </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial"/>
+    }
+    <script>
+    $(document).ready(function() {
+        $('.summernote').summernote({height:250});
+     });
+
+     function validateInput() {
+            if(document.getElementById("uplodeBox").value == ""){
+                Swal.fire(
+                    'No Image?',
+                    'Uplodae Image First',
+                    'Error'
+                    )
+                    return false;
+            }
+            return true;
+
+        }
+    </script>
+}

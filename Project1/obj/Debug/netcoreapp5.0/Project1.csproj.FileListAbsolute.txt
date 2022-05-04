@@ -1,0 +1,8 @@
+D:\[02] Work\[011] Learnning Project\[01] C#\[05] ASP 5.0\Project1\Project1\obj\Debug\netcoreapp5.0\Project1.GeneratedMSBuildEditorConfig.editorconfig
+D:\[02] Work\[011] Learnning Project\[01] C#\[05] ASP 5.0\Project1\Project1\obj\Debug\netcoreapp5.0\Project1.AssemblyInfoInputs.cache
+D:\[02] Work\[011] Learnning Project\[01] C#\[05] ASP 5.0\Project1\Project1\obj\Debug\netcoreapp5.0\Project1.AssemblyInfo.cs
+D:\[02] Work\[011] Learnning Project\[01] C#\[05] ASP 5.0\Project1\Project1\obj\Debug\netcoreapp5.0\Project1.csproj.CoreCompileInputs.cache
+D:\[02] Work\[011] Learnning Project\[01] C#\[05] ASP 5.0\Project1\Project1\obj\Debug\netcoreapp5.0\Project1.MvcApplicationPartsAssemblyInfo.cs
+D:\[02] Work\[011] Learnning Project\[01] C#\[05] ASP 5.0\Project1\Project1\obj\Debug\netcoreapp5.0\Project1.MvcApplicationPartsAssemblyInfo.cache
+D:\[02] Work\[011] Learnning Project\[01] C#\[05] ASP 5.0\Project1\Project1\obj\Debug\netcoreapp5.0\Project1.RazorAssemblyInfo.cache
+D:\[02] Work\[011] Learnning Project\[01] C#\[05] ASP 5.0\Project1\Project1\obj\Debug\netcoreapp5.0\Project1.RazorAssemblyInfo.cs
